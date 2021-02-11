@@ -12,6 +12,6 @@ You have to Edit Code and Add Your FiveM Server IP and Port.
 Lines you have to Change (otherwise your bot wont run)
 > Line 24, Line 60, Line 130, Line 158
 
-#Install
+# Install
 Install Python and Discord.py (( pip install discord & pip install requests ))
 If you need Any Help, Contact me in discord: AmirhN#1337
