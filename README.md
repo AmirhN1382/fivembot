@@ -10,7 +10,7 @@ Useful Discord Bot for FiveM Servers Written in Discord.py
 # Note
 You have to Edit Code and Add Your FiveM Server IP and Port.
 Lines you have to Change (otherwise your bot wont run)
-> Line 24, Line 60, Line 130, Line 158
+> Line 24, Line 60, Line 130, Line 158, Line 181
 
 # Install
 Install Python and Discord.py (( pip install discord & pip install requests ))
