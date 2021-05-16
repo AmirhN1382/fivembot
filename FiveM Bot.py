@@ -1,27 +1,35 @@
 import os
+## pip install discord.py
 import discord
 import asyncio
 import time
+## pip install requests
 import requests as rq
 from discord.ext import commands
 from discord.ext import tasks
-
 
 ## Setup
 client = commands.Bot(command_prefix=['$'])
 client.remove_command('help')
 
+## Config
+class config:
+    serverIP = "" #IP:PORT | Example: 87.98.246.41:30120
+    guildID = 0 #Your Discord Server ID, must be int. | Example: 721939142455459902
+    Token = "" #Your Discord Bot Token
 
 ## Events
 @client.event
 async def on_ready():
     print('Bot Is Ready!')
+    print('IF you have any problems, add me in discord, i will help you.!')
+    print('AmirhN#1337')
     client.my_current_task = live_status.start()
 
 ## Players Count Function // Callable Everywhere, returns number
 def pc():
     try:
-        resp = rq.get('http://IP:PORT/players.json').json()
+        resp = rq.get('http://'+config.serverIP+'/players.json').json()
         return(len(resp))
     except:
         return('N/A')
@@ -57,7 +65,7 @@ async def pid(ctx, pids):
     if not pid:
         await ctx.send('<@{}>, Please Specify A In-Game Player ID!')
         return
-    resp = rq.get('http://IP:PORT/players.json')
+    resp = rq.get('http://'+config.serverIP+'/players.json')
     for _ in resp.json():
         if _['id'] == int(pids):
             pembed = discord.Embed(title='PlayerID Query Seccessful!', color=discord.Color.dark_green())
@@ -118,7 +126,7 @@ async def help(ctx):
     embed.add_field(name="^say", value="Say Something as BOT in Embed Message with your name", inline=False)
     embed.add_field(name="^hsay", value="Say Something as BOT [Hidden Mode]", inline=False)
     embed.add_field(name="^run", value="Server run shod Embed", inline=False)
-    embed.set_footer(text="Made With 💖 by #1337")
+    embed.set_footer(text="Made With 💖 by AmirhN#1337")
     await ctx.send(embed=embed)
     
 ## Players Command
@@ -127,7 +135,7 @@ async def help(ctx):
 async def players(ctx):
     
     timenow = time.strftime("%H:%M")
-    resp = rq.get('http://IP:PORT/players.json').json()
+    resp = rq.get('http://'+config.serverIP+'/players.json').json()
     total_players = len(resp)
     if len(resp) > 25:
         for i in range(round(len(resp) / 25)):
@@ -155,7 +163,7 @@ async def players(ctx):
 @tasks.loop()
 async def live_status(seconds=75):
     pcount = pc()
-    Dis = client.get_guild(your server ID) #Int
+    Dis = client.get_guild(config.guildID) #Int
 
     activity = discord.Activity(type=discord.ActivityType.watching, name=f'🐌 {pcount}')
     await client.change_presence(activity=activity)
@@ -178,4 +186,4 @@ async def live_status(seconds=75):
     await asyncio.sleep(15)
 
 
-client.run('Your Bot Token')
+client.run(config.Token)
