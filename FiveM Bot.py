@@ -9,7 +9,7 @@ from discord.ext import commands
 from discord.ext import tasks
 
 ## Setup
-client = commands.Bot(command_prefix=['$'])
+client = commands.Bot(command_prefix=['^'])
 client.remove_command('help')
 
 ## Config
