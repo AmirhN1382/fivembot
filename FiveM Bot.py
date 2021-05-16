@@ -107,7 +107,7 @@ async def run(ctx):
     timenow = time.strftime("%H:%M")
     embed=discord.Embed(title="Server Run Shod", description="Server Run Shod Guys! Mitonid join shid =)", color=0xff1414)
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/624670013793763330/809442452695547984/unknown.png")
-    embed.add_field(name="✅ Connect Via Launcher ✅", value=" ", inline=False)
+    embed.add_field(name="✅ Paste this in f8 ✅", value=f"join {config.serverIP}", inline=False)
     embed.set_footer(text=f"{timenow}")
     await ctx.send(embed=embed, content=content)
     
