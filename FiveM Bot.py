@@ -14,7 +14,7 @@ client.remove_command('help')
 
 ## Config
 class config:
-    serverIP = "" #IP:PORT | Example: 87.98.246.41:30120
+    serverIP = "" #IP:PORT | Example: 87.98.246.41:30120 | Use 127.0.0.1:PORT if you're running it on same Server as FiveM Server.
     guildID = 0 #Your Discord Server ID, must be int. | Example: 721939142455459902
     Token = "" #Your Discord Bot Token
 
