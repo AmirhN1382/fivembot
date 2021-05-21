@@ -159,6 +159,25 @@ async def players(ctx):
             embed.add_field(name=player['name'], value='ID : ' + str(player['id']))
         await ctx.send(embed=embed)
     
+@client.command()
+@commands.has_permissions(administrator=True)
+async def ip(ctx, *, ip=None):
+    if not ip:
+        await ctx.send('<@{}>, Please Specify A IP Address!'.format(ctx.message.author.id))
+        return
+    rsp = rq.get('http://ip-api.com/json/'+ip).json()
+    if rsp['status'] == 'fail':
+        #await ctx.send('Error !\nAPI Respond: '+rsp['message']+'\nQuery: '+rsp['query'])
+        embed=discord.Embed(color=0xFF0000)
+        embed.add_field(name="❌ Query Failed", value="❓ Reason: "+rsp['message'])
+        embed.set_footer(text="Query: "+ip)
+        await ctx.send(embed=embed)
+        return
+    embed=discord.Embed(color=0x00FFFF)
+    embed.add_field(name="✅Status: "+rsp['status'], value=f"\n\n🌍Country: {rsp['country']} \n\n🌏CountryCode: {rsp['countryCode']} \n\n🔷Region: {rsp['region']} \n\n🔷Region Name: {rsp['regionName']} \n\n🔷City: {rsp['city']} \n\n🕑TimeZone: {rsp['timezone']} \n\n🏢ISP: {rsp['isp']}\n\n🏢ISP OrgName: {rsp['org']}\n\n🏢ISP MoreInfo: {rsp['as']}", inline=False)
+    embed.set_footer(text="Requested IP: "+ip)
+    await ctx.send(embed=embed)
+
 ## Live Status
 @tasks.loop()
 async def live_status(seconds=75):
