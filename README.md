@@ -14,3 +14,6 @@ You have to Edit Code and change the config so your bot will work.
 # Install
 Install Python and Discord.py (( pip install discord & pip install requests ))
 If you need Any Help, Contact me in discord: AmirhN#1337
+
+# Important Note
+Please Don't Sell it =))
