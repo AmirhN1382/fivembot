@@ -12,8 +12,12 @@ You have to Edit Code and change the config so your bot will work.
 > Line 17, 18, 19
 
 # Install
-Install Python and Discord.py (( pip install discord & pip install requests ))
-If you need Any Help, Contact me in discord: AmirhN#1337
-
-# Important Note
-Please Don't Sell it =))
+Install:
+1- Install Python (( don’t forget to tick “Add To Environment Variables” ))<br />
+2- open your CMD, type the following commands:<br />
+```
+pip install discord.py
+pip install requests
+```
+2.1- If It Says “pip is not recognized as an internal or external command” install Python again, choose “Modify” and tick to install “PIP” and “Add to Environment Variables”<br />
+3- Double click on your “*.py” file.
