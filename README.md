@@ -1,3 +1,4 @@
+# Someone updated this bot, refer to this repo if you want to use this fivem bot: https://github.com/moongetsu/fivem-servers-bot
 # FiveM Discord.Py Bot 
 Useful Discord Bot for FiveM Servers Written in Discord.py
 > List of Features:
